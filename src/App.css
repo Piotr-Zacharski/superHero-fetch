@@ -1,0 +1,11 @@
+html{
+  background-color: #bdc3c7;
+}
+.App {
+  text-align: center;
+  margin: auto;
+  justify-content: center;
+  background-color: #bdc3c7;
+  width: 100%;
+  height: 100%;
+}
