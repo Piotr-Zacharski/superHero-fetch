@@ -2,15 +2,12 @@ import React, { useState } from "react";
 import useFetch from "./useFetch";
 import "./App.css";
 import SuperHeroCard from "./components/SuperHeroCard";
-
-const ACCESS_TOKEN = "4170129049779298";
+import { ACCESS_TOKEN } from "./utils/constants";
 
 function App() {
   const [heroId, setHeroId] = useState(Math.floor(Math.random() * 500) + 1);
-
-  const { data, isLoading, error } = useFetch(
-    `https://superheroapi.com/api/${ACCESS_TOKEN}/${heroId}`
-  );
+  const apiUrl = `https://superheroapi.com/api/${ACCESS_TOKEN}/${heroId}`;
+  const { data, isLoading, error } = useFetch(apiUrl);
 
   const handleInputChange = event => {
     setHeroId(event.target.value);
@@ -23,8 +20,6 @@ function App() {
   if (error) {
     return <div>Error: {error}</div>;
   }
-
-  console.log(data.id);
 
   return (
     <div className="App">
